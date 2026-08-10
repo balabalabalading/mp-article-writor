@@ -28,7 +28,7 @@ disable-model-invocation: false
 
 **5. I() 必须指定父节点。** 第一个参数可以是 page、frame 的真实 ID，或同一次调用中已创建的 binding；跨页面插入时使用目标 pageId。
 
-**6. M() 可以移动节点到新的父容器。** 第二个参数应是有效的父节点 ID（page 或 frame），可选第三个参数用于指定 sibling index。移动后必须读取目标父节点验证层级。
+**6. M() 可以移动节点到新的父容器。** 第二个参数应是有效的父节点 ID（page 或 frame），可选第三个参数用于指定 sibling index。移动后必须读取目标父节点验证层级。**页面重排**：MCP 无专用工具，用 `M("pageId", "0:0", index)` 把 PAGE 移回文件根 `0:0`（DOCUMENT）即可重排页面列表，index 实测为 **1-based**（详见 [dsl-reference.md](references/dsl-reference.md) 的 Reordering pages）。
 
 **7. 不支持 cornerRadius 变量绑定。** Ardot 目前不支持 `cornerRadius` 的 `boundVariables`。使用硬编码数值代替（例如 `cornerRadius: 6`）。
 

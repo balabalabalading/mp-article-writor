@@ -189,11 +189,32 @@ M("nodeId", "parentId", index?)
 - Component instances remain connected to their source component after moving.
 - After moving, verify the target parent's `children` order with `batch_read`.
 
+### Reordering pages (reorder the page list)
+
+MCP exposes **no dedicated page-reorder tool**. Reorder pages by moving the PAGE
+nodes themselves under the document root `0:0` (the `DOCUMENT` node that parents
+all pages — discover it via `batch_read nodeIds: ["0:0"]`, type `DOCUMENT`).
+
+```
+M("pageId", "0:0", index)
+```
+
+- **`index` is 1-based** (verified on the page list): `M("5:97", "0:0", 4)`
+  places the page at 1-based position 4 (i.e. 0-based index 3).
+- The `0:1` components page normally stays at position 1; give business pages
+  target positions `i + 1` for the i-th business page (0-based i).
+- Move **front-to-back** by target position (not back-to-front) so already-placed
+  pages are not pushed out of place by later moves.
+- `parentId` must be a real node ID — `undefined`, a bare number, an empty string,
+  or the file id all fail with `Move failed: Move: parent not found: <X>`.
+- After reordering, verify with `fetch_editor_state` (`pageList` order).
+
 ### Example
 
 ```js
 M("3:544", "3:1672")     // Move button to Components page
 M("3:544", "3:200", 0)   // Move button into frame 3:200 at index 0
+M("5:97", "0:0", 4)      // Move page to 1-based position 4 (page reorder)
 ```
 
 ---
