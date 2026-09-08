@@ -40,7 +40,7 @@ npx skills add https://github.com/op7418/guizang-material-illustration --skill g
 
 The writing workflow still runs when either skill is missing. Visual outputs covered by the missing skill are listed as pending; the workflow does not fall back to the previous prompt-only delivery.
 
-Version 2.1.0 adds article-type routing, a focused software-update brief format, consolidated source handling, and WeChat-friendly body headings. Version 2.0 replaced the previous prompt-only illustration workflow with actual static visual production. The previous stable source remains available at the `mp-article-writor--v1.0.0` tag.
+Version 2.1.0 adds article-type routing, a focused software-update brief format with consolidated source handling, and WeChat-friendly body headings. Version 2.0 replaced the previous prompt-only illustration workflow with actual static visual production. The previous stable source remains available at the `mp-article-writor--v1.0.0` tag.
 
 The repository default branch is `main`. Existing clones that still track `master` should migrate before the remote branch is removed:
 
@@ -193,7 +193,7 @@ npx skills add https://github.com/op7418/guizang-material-illustration --skill g
 
 缺少任一 Skill 时仍可完成文章写作，对应的视觉素材会被列为待完成项目，不会退回旧版提示词交付方式。
 
-2.1.0 版本增加文章类型路由、软件更新简报格式、集中来源记录和公众号正文标题规则。2.0 版本使用实际静态视觉生产替代旧版提示词配图流程。旧版稳定源码保留在 `mp-article-writor--v1.0.0` 标签。
+2.1.0 版本增加文章类型路由、带集中来源记录的软件更新简报格式，以及公众号正文标题规则。2.0 版本使用实际静态视觉生产替代旧版提示词配图流程。旧版稳定源码保留在 `mp-article-writor--v1.0.0` 标签。
 
 仓库默认分支已经切换为 `main`。已有本地副本如果仍跟踪 `master`，请在远程分支清理前执行：
 
