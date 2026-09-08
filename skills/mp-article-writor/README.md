@@ -6,11 +6,14 @@
 
 <a id="english"></a>
 
-A Claude Code Skill that helps content creators craft static long-form articles for WeChat Official Accounts (公众号). Covers an 11-step workflow from intent understanding to final article, static covers, explanatory illustrations, and delivery checks.
+A Claude Code Skill that routes software-update briefs, product reviews, workflow retrospectives, technical explainers, and narrative essays into suitable structures for WeChat Official Accounts (公众号). It covers an 11-step workflow from intent understanding to final article, static covers, explanatory illustrations, and delivery checks.
 
 ## Features
 
 - **11-step article workflow**: Intent understanding → Style calibration → Outline and visual plan → Draft writing → Independent review → Fact-checking → Revision → Final self-check → Finished article → Static visual production → Delivery check
+- **Article-type routing**: Selects a primary structure for software-update briefs, product reviews, workflow retrospectives, technical explainers, or narrative essays
+- **Release-brief mode**: Opens with the date or version range and an unordered update list, then explains each change, impact, use case, and essential boundary without per-section commit links
+- **WeChat heading levels**: Keeps one document title and uses level-three headings for all body sections so pasted articles match the native editor more closely
 - **Independent review + fact-checking**: Subagent-powered reviews that detect AI-generated tone, logical gaps, structural symmetry, and factual accuracy
 - **"Human voice" final check**: Evaluates whether the article reads like "a knowledgeable friend chatting" or "AI outputting information"
 - **Style calibration**: Dual reference system (essay style analysis + writing style guide) to match your voice
@@ -37,7 +40,7 @@ npx skills add https://github.com/op7418/guizang-material-illustration --skill g
 
 The writing workflow still runs when either skill is missing. Visual outputs covered by the missing skill are listed as pending; the workflow does not fall back to the previous prompt-only delivery.
 
-Version 2.0 replaces the previous prompt-only illustration workflow with actual static visual production. The previous stable source remains available at the `mp-article-writor--v1.0.0` tag.
+Version 2.1.0 adds article-type routing, a focused software-update brief format, consolidated source handling, and WeChat-friendly body headings. Version 2.0 replaced the previous prompt-only illustration workflow with actual static visual production. The previous stable source remains available at the `mp-article-writor--v1.0.0` tag.
 
 The repository default branch is `main`. Existing clones that still track `master` should migrate before the remote branch is removed:
 
@@ -113,13 +116,14 @@ Describe your writing needs in Claude Code and the Skill triggers automatically:
 - "Help me write a WeChat article about XX"
 - "Turn these materials into a blog post"
 - "Write a draft for my newsletter"
+- "Summarize the September 7 and 8 software updates as a concise WeChat brief"
 
 The Skill follows a strict 11-step workflow, completing each step before moving to the next.
 
 ## Workflow
 
 ```
-Step 1  Understand intent     → Confirm angle, depth, theme, materials, illustration style, and output folder
+Step 1  Understand intent     → Route article type; confirm angle, depth, theme, materials, illustration style, and output folder
 Step 2  Read references        → Calibrate voice (essay analysis + style guide)
 Step 3  Design outline & style → Present outline and visual script, await confirmation
 Step 4  Write first draft      → Follow all writing rules
@@ -141,6 +145,7 @@ After installation, customize `SKILL.md` for your own writing:
 - **Reader profile**: Update the "Reader Profile" section
 - **File paths**: Update save paths and front matter tags
 - **Style analysis**: Replace `references/范文风格分析.md` with analysis of your own writing
+- **Article routing**: Adjust `references/文章类型路由.md` when your account needs different editorial formats
 
 ## Related Article
 
@@ -154,11 +159,14 @@ After installation, customize `SKILL.md` for your own writing:
 
 <a id="chinese"></a>
 
-一个 Claude Code Skill，帮助自媒体创作者将素材整理为微信公众号静态图文长文。覆盖从意图理解、大纲和视觉脚本、初稿撰写到静态配图生产与交付检查的完整工作流。
+一个 Claude Code Skill，根据软件更新简报、产品测评、工作流复盘、技术解析和叙事文章等类型，为微信公众号内容选择合适结构。覆盖从意图理解、大纲和视觉脚本、初稿撰写到静态配图生产与交付检查的完整工作流。
 
 ## 功能特性
 
 - **11 步文章工作流**：意图理解 → 风格校准 → 大纲和视觉脚本 → 初稿撰写 → 独立审读 → 事实核查 → 修改 → 终审自检 → 完成终稿 → 静态视觉生产 → 交付检查
+- **文章类型路由**：为软件更新简报、产品测评、工作流复盘、技术解析和叙事文章选择一个主结构
+- **更新简报模式**：以日期或版本范围和无序更新列表开头，逐项说明改动、影响、应用场景和必要边界，不在每节末尾附 commit 链接
+- **公众号标题层级**：保留一个文档主标题，正文章节统一使用三级标题，复制到公众号后更接近原生字号
 - **独立审读 + 事实核查**：通过 subagent 对初稿进行 AI 味检测、逻辑连贯性检查、事实性核查
 - **「活人感」终审**：判断文章读起来是「朋友在聊天」还是「AI 在输出」
 - **风格校准**：范文分析 + 行文风格指南双重校准
@@ -185,7 +193,7 @@ npx skills add https://github.com/op7418/guizang-material-illustration --skill g
 
 缺少任一 Skill 时仍可完成文章写作，对应的视觉素材会被列为待完成项目，不会退回旧版提示词交付方式。
 
-2.0 版本使用实际静态视觉生产替代旧版提示词配图流程。旧版稳定源码保留在 `mp-article-writor--v1.0.0` 标签。
+2.1.0 版本增加文章类型路由、软件更新简报格式、集中来源记录和公众号正文标题规则。2.0 版本使用实际静态视觉生产替代旧版提示词配图流程。旧版稳定源码保留在 `mp-article-writor--v1.0.0` 标签。
 
 仓库默认分支已经切换为 `main`。已有本地副本如果仍跟踪 `master`，请在远程分支清理前执行：
 
@@ -261,13 +269,14 @@ PicGo 不是必需依赖。保持默认的 `local` 模式，Skill 仍会生成�
 - 「帮我写一篇关于 XX 的公众号文章」
 - 「把这些素材整理成推文」
 - 「发公众号」
+- 「把 9 月 7 日和 8 日的软件更新整理成一篇简洁的公众号简报」
 
 Skill 会按 11 步工作流依次执行。
 
 ## 工作流
 
 ```
-Step 1  理解作者意图    → 确认切入角度、深度、主旨、素材、正文插图风格和输出目录
+Step 1  理解作者意图    → 选择文章类型，确认切入角度、深度、主旨、素材、正文插图风格和输出目录
 Step 2  阅读参考资料    → 校准语感（范文分析 + 风格指南）
 Step 3  设计大纲和风格  → 呈现大纲和视觉脚本，等待确认
 Step 4  编写初稿        → 按规则写作
@@ -285,6 +294,7 @@ Step 11 交付检查        → 尺寸、图片发布状态、标签、数据、
 安装后修改 `SKILL.md` 中的以下内容：
 - **公众号名称**、**固定结尾**、**作者声音**、**读者画像**、**文件保存路径**
 - 将 `references/范文风格分析.md` 替换为你自己的风格分析
+- 根据账号内容调整 `references/文章类型路由.md`
 
 ## 相关文章
 

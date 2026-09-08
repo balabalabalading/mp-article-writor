@@ -12,7 +12,7 @@ My personal collection of Skills — open-source tools that extend Agent's capab
 
 | Skill                 | Description                                                                        | README                                       | Article                                                   |
 | --------------------- | ---------------------------------------------------------------------------------- | -------------------------------------------- | --------------------------------------------------------- |
-| **mp-article-writor** | Generate static WeChat articles with an 11-step writing and visual-production workflow | [README](skills/mp-article-writor/README.md) | [Link](https://mp.weixin.qq.com/s/ayye6aaSlxAwf7gFjPHsRQ) |
+| **mp-article-writor** | Route multiple WeChat article types through an 11-step writing and visual-production workflow | [README](skills/mp-article-writor/README.md) | [Link](https://mp.weixin.qq.com/s/ayye6aaSlxAwf7gFjPHsRQ) |
 | **logging-session**   | Record and query AI coding session logs to your Obsidian vault                     | [README](skills/logging-session/README.md)   | [Link](https://mp.weixin.qq.com/s/jGSc1NjR_DPMWhZEYi8OJQ) |
 | **article2ticktick**  | Convert tech newsletter articles to TickTick todos with auto-categorization        | [README](skills/article2ticktick/README.md)  | [Link](https://mp.weixin.qq.com/s/xbvFmOwk0SwdWMw4BUczSg) |
 
@@ -36,7 +36,7 @@ In Claude Code:
 
 Replace `<skill-name>` with `mp-article-writor`, `logging-session`, or `article2ticktick`.
 
-`mp-article-writor` 2.0 recommends two optional Guizang skills for complete static covers and body illustrations. See its [README](skills/mp-article-writor/README.md) for installation commands. Missing Guizang skills do not block article writing, but their visual outputs remain pending.
+`mp-article-writor` 2.1.0 routes software-update briefs, product reviews, workflow retrospectives, technical explainers, and narrative essays before entering the writing workflow. It recommends two optional Guizang skills for complete static covers and body illustrations. See its [README](skills/mp-article-writor/README.md) for installation commands. Missing Guizang skills do not block article writing, but their visual outputs remain pending.
 
 Image publishing is local-first. The skill generates local images and relative Markdown links by default. PicGo Desktop or PicGo Core Server can be enabled explicitly to upload through any image host already configured in PicGo; PicGo is optional and the skill never reads image-host credentials.
 
@@ -91,7 +91,7 @@ huuuuuuho-skills/
 
 | Skill | 简介 | README | 公众号文章 |
 |---|---|---|---|
-| **mp-article-writor** | 微信公众号静态图文生成：11 步写作、视觉生产和交付工作流 | [README](skills/mp-article-writor/README.md) | [链接](https://mp.weixin.qq.com/s/ayye6aaSlxAwf7gFjPHsRQ) |
+| **mp-article-writor** | 微信公众号多类型静态图文生成：文章路由、11 步写作、视觉生产和交付工作流 | [README](skills/mp-article-writor/README.md) | [链接](https://mp.weixin.qq.com/s/ayye6aaSlxAwf7gFjPHsRQ) |
 | **logging-session** | AI 编码会话记录与查询，支持 Obsidian 集成 | [README](skills/logging-session/README.md) | [链接](https://mp.weixin.qq.com/s/jGSc1NjR_DPMWhZEYi8OJQ) |
 | **article2ticktick** | 技术周报文章批量/单篇转滴答清单待办 | [README](skills/article2ticktick/README.md) | [链接](https://mp.weixin.qq.com/s/xbvFmOwk0SwdWMw4BUczSg) |
 
@@ -115,7 +115,7 @@ huuuuuuho-skills/
 
 将 `<skill-name>` 替换为 `mp-article-writor`、`logging-session` 或 `article2ticktick`。
 
-`mp-article-writor` 2.0 推荐安装两个归藏 Skill，以完成单张组合封面和正文插图生产。安装命令见其 [README](skills/mp-article-writor/README.md)。缺少归藏 Skill 不影响文章写作，对应视觉素材会保留为待完成项目。
+`mp-article-writor` 2.1.0 会先为软件更新简报、产品测评、工作流复盘、技术解析和叙事文章选择主类型，再进入写作流程。它推荐安装两个归藏 Skill，以完成单张组合封面和正文插图生产。安装命令见其 [README](skills/mp-article-writor/README.md)。缺少归藏 Skill 不影响文章写作，对应视觉素材会保留为待完成项目。
 
 图片发布默认使用本地模式，生成本地图片和相对 Markdown 链接。用户可以显式启用 PicGo Desktop 或 PicGo Core Server，让工作流通过 PicGo 中已经配置的任意图床上传图片。PicGo 属于可选集成，Skill 不读取具体图床凭据。
 
